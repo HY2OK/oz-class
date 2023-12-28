@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>양식을 만들고 입력 정보를 보내자</title>
+  </head>
+  <body>
+    <header>
+      <h1>설문조사 양식</h1>
+      <p>모든 항목에 빠짐없이 체크해주십시오.</p>
+    </header>
+    <hr />
+    <main>
+      <form>
+        <fieldset>
+          <legend>개인정보</legend>
+          <label for="name">이름</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="본명을 입력하세요"
+          />
+          <br />
+          <label for="email">이메일주소</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="메일 주소 쓰세요"
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend>설문</legend>
+
+          <p>성별이 어떻게 되십니까?</p>
+          <input type="radio" id="male" name="gender" />
+          <label for="male">남자</label>
+          <input type="radio" id="female" name="gender" />
+          <label for="female">여자</label>
+
+          <p>연령대가 어떻게 되십니까?</p>
+          <input type="radio" id="teen" name="age" />
+          <label for="teen">10대</label>
+          <input type="radio" id="twenty" name="age" />
+          <label for="twenty">20대</label>
+          <input type="radio" id="thirty" name="age" />
+          <label for="thirty">30대</label>
+          <input type="radio" id="fourty" name="age" />
+          <label for="fourty">40대</label>
+          <input type="radio" id="fifty" name="age" />
+          <label for="fifty">50대</label>
+          <input type="radio" id="other" name="age" />
+          <label for="other">그 외</label>
+
+          <p>
+            학원을 선택할 때 가장 중요하게 생각하는 것은 무엇입니까? 모두
+            고르시오
+          </p>
+          <input type="checkbox" name="academy" id="position" />
+          <label for="position">위치</label>
+          <input type="checkbox" name="academy" id="price" />
+          <label for="price">학원비</label>
+          <input type="checkbox" name="academy" id="teacher" />
+          <label for="teacher">강사</label>
+          <input type="checkbox" name="academy" id="infra" />
+          <label for="infra">시설</label>
+
+          <p>학원의 커리큘럼에 만족하십니까?</p>
+          <select>
+            <option selected disabled value="">만족도를 선택해주세요</option>
+            <option value="5">매우 만족</option>
+            <option value="4">만족</option>
+            <option value="3">보통</option>
+            <option value="2">불만족</option>
+            <option value="1">매우 불만족</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>기타 의견</legend>
+          <textarea name="comment" cols="30" rows="3"></textarea>
+        </fieldset>
+
+        <br />
+        <input type="reset" value="초기화" />
+        <input type="submit" value="제출" />
+      </form>
+    </main>
+    <hr />
+    <footer>
+      <p>입력하느라 수고하셨습니다.</p>
+    </footer>
+  </body>
+</html>
