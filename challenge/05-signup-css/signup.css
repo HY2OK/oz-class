@@ -1,0 +1,74 @@
+body {
+  margin: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  background-color: #dddddd;
+}
+
+.container {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 30px 10px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 5px 5px 0 #61a6d4, 10px 10px 0 #4682b4, 15px 15px 0 #325e8c, 20px 20px 0 #214662;
+}
+
+.container main form fieldset {
+  border-radius: 5px;
+  border: 1px solid #214662;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 250px;
+}
+
+.container main form fieldset ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* required */
+.container main form fieldset.required ul li:not(:last-child) {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container main form fieldset.required ul li:last-child button {
+  float: right;
+  margin: 5px 0 0 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #325e8c;
+  color: #fff;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+/* optional */
+.container main form fieldset.optional ul {
+  width: 100%;
+  padding: 10px;
+}
+
+.container main form fieldset.optional ul li {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container main form fieldset.optional ul li p {
+  margin: 0 0 5px 0;
+}
+
+.container main form fieldset.optional ul li label {
+  margin-left: 15px;
+}
