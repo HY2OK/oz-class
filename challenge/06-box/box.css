@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, #3498db, #e74c3c);
+}
+
+.box {
+  background-color: #fff;
+  color: #00aeff;
+  border: 2px solid #00aeff;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+
+.box:hover {
+  background-color: #00aeff;
+  color: #fff;
+  border: 1px solid #fff;
+}
