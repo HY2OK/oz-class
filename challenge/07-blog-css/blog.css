@@ -1,0 +1,89 @@
+* {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+html {
+  background-color: gainsboro;
+  font-size: 16px;
+}
+
+body {
+  width: 640px;
+  background-color: #fff;
+  border-radius: 20px;
+  min-height: 100vh;
+  background-color: #fff;
+  margin: 20px auto;
+}
+
+header {
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  line-height: 150px;
+  height: 200px;
+  background-color: #001f3f;
+  border-radius: 20px 20px 0px 0px;
+  color: #fff;
+}
+
+header img {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 190px;
+  left: 320px;
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  box-shadow: 4px 4px 8px #000;
+}
+
+main {
+  background-color: #001f3f;
+  font-size: 1.3rem;
+}
+
+main #introduce {
+  padding: 80px 0 30px;
+  background-color: #fff;
+  border-radius: 50px 50px 0 0;
+}
+
+main #introduce p {
+  margin: 10px 0;
+}
+
+main #fun_facts {
+  background-color: #fff;
+}
+
+main #fun_facts h2 {
+  font-size: 1.7rem;
+  padding: 10px 0;
+  color: #001f3f;
+}
+
+main #fun_facts p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+footer {
+  position: relative;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+}
+
+footer span {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+/* 글꼴, 색상, 글자 크기 */
