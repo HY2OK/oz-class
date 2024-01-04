@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  height: 100%;
+  margin: 0;
+  background-color: #e0e0e0;
+}
+
+.container {
+  width: 1000px;
+  height: 270px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.container .sidebar {
+  height: 100%;
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+  background-color: #85a3bf;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container .sidebar .icon {
+  font-size: 25px;
+}
+
+.container .sidebar h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.container .sidebar h2 ~ div {
+  font-size: 14px;
+  color: #e0e0e0;
+}
+
+.container .sidebar ul {
+  padding: 0;
+}
+
+.container .sidebar ul li {
+  color: #b1e0c7;
+  margin: 15px 0;
+}
+
+.container .main {
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.container .main h2 {
+  font-size: 25px;
+  margin: 15px 0;
+}
+
+.container .main h2 ~ div {
+  font-size: 14px;
+}
+
+.container .main ul {
+  padding: 0;
+}
+
+.container .main ul li {
+  padding: 10px;
+  color: #96c48c;
+}
