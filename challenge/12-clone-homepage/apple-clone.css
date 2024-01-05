@@ -19,7 +19,7 @@ body {
 }
 
 #header ul.nav-list {
-  width: 996px;
+  max-width: 996px;
   height: 44px;
   padding: 0 22px;
   margin: 0 auto;
@@ -53,7 +53,7 @@ body {
 
 /* --------------banner-------------- */
 .promo-banner {
-  width: 980px;
+  max-width: 980px;
   height: 50px;
   padding: 13px 0;
   margin: 0 auto;
@@ -61,6 +61,10 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
+}
+
+.promo-banner div {
+  padding: 0 10px;
 }
 
 .promo-banner div i {
@@ -79,7 +83,7 @@ body {
 }
 
 .container .shop {
-  width: 1224px;
+  max-width: 1224px;
 }
 
 .container .shop .sub-header {
@@ -103,6 +107,10 @@ body {
   display: flex;
   align-items: center;
   overflow-x: auto;
+}
+
+.container .card::-webkit-scrollbar {
+  display: none;
 }
 
 .container .card > div {
@@ -146,6 +154,10 @@ body {
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 20px;
+}
+
+.shelf ul::-webkit-scrollbar {
+  display: none;
 }
 
 .shelf ul li {
