@@ -1,0 +1,19 @@
+.about-title {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 64px 16px;
+}
+
+.about-title div {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: rgba(198, 44, 218, 0.948);
+}
+
+.about-title h1 {
+  text-align: center;
+  font-size: 72px;
+  font-weight: bold;
+  margin: 0.83em 0px;
+}

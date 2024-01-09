@@ -1,0 +1,72 @@
+.about-card {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 30px;
+}
+
+.about-card .card {
+  margin: 50px;
+  padding: 58px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 40px;
+  width: 320px;
+  transition: all 350ms;
+  background-color: rgba(111, 13, 124, 0.644);
+}
+
+.about-card .card > a {
+  text-decoration: none;
+}
+
+.about-card .card > a > h3 {
+  margin-top: 0.6em;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.about-card .card.lecture > a > h3 {
+  color: rgb(83, 167, 223);
+}
+.about-card .card.study > a > h3 {
+  color: rgb(100, 237, 152);
+}
+.about-card .card.playground > a > h3 {
+  color: rgb(236, 227, 147);
+}
+
+.about-card .card > a > div {
+  color: #fff;
+  margin: 1em 0px;
+}
+
+@media screen and (min-width: 769px) {
+  .about-card:hover .card:hover {
+    transform: scale(1);
+  }
+
+  .about-card:hover .card:not(:hover) {
+    transform: scale(0.9);
+  }
+
+  .about-card:hover .card:not(:hover)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(5px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
