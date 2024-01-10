@@ -1,0 +1,120 @@
+.service {
+  max-width: 120rem;
+  margin: 5rem auto;
+}
+
+.service .service-title {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 40px;
+}
+
+.card li {
+  position: relative;
+  max-width: 120rem;
+  height: 35rem;
+  border: 1px solid #dedede;
+  display: flex;
+  align-items: center;
+  border-radius: 0.6rem;
+  margin: 0 10px;
+}
+
+.card li img {
+  position: absolute;
+  top: 0;
+  width: 35rem;
+  height: 35rem;
+  z-index: -1;
+}
+
+.card li .card-title {
+  margin-left: 35%;
+  padding: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.card li .card-title .card-price {
+  font-size: 1.6rem;
+  margin-top: 10rem;
+  color: #676767;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.card li .card-title .card-price span strong {
+  display: block;
+  margin-top: 1rem;
+  color: #000;
+}
+
+@media screen and (max-width: 1023px) {
+  .service .service-title {
+    display: none;
+  }
+
+  .card {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+  }
+
+  .card li {
+    max-width: 120rem;
+    height: initial;
+    aspect-ratio: 1/1;
+  }
+
+  .card li img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .card li .card-title {
+    position: absolute;
+    top: 3rem;
+    left: 1rem;
+    margin-left: 0;
+    padding: 0;
+    font-size: 2.5rem;
+    color: #fff;
+  }
+
+  .card li .card-title .card-price {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .card li .card-title .card-price span strong {
+    display: inline;
+    border-left: 1px solid #fff;
+    margin-top: 0;
+    padding-left: 5px;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .card {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+}

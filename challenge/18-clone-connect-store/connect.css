@@ -1,0 +1,19 @@
+@import url(./styles/header.css);
+@import url(./styles/service.css);
+@import url(./styles/footer.css);
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+}
