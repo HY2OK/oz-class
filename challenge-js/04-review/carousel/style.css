@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  padding: 20px;
+  height: 100%;
+}
+
+.container.dark {
+  background-color: #000;
+}
+
+.carousel-wrapper {
+  width: 500px;
+  overflow: hidden;
+}
+
+.carousel-wrapper .carousel {
+  display: flex;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s;
+}
+
+.carousel-wrapper .carousel img {
+  width: 500px;
+}
