@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button id="white">white</button>
+      <button id="black">black</button>
+    </div>
+  </body>
+
+  <script>
+    const $white = document.getElementById('white');
+    const $black = document.getElementById('black');
+    const $container = document.querySelector('.container');
+
+    const changeColor = (color) => {
+      $container.style.backgroundColor = `${color}`;
+    };
+
+    $white.addEventListener('click', () => changeColor('#fff'));
+    $black.addEventListener('click', () => changeColor('#000'));
+  </script>
+</html>
