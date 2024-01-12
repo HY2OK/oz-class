@@ -4,6 +4,7 @@ const $hint = document.querySelector('.hint');
 const $replay = document.querySelector('.replay');
 
 let randomNumber = Math.floor(Math.random() * 100) + 1;
+console.log(randomNumber);
 
 $btn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -27,5 +28,6 @@ $btn.addEventListener('click', (e) => {
 
 $replay.addEventListener('click', (e) => {
   $input.value = '';
+  $replay.style.display = 'none';
   randomNumber = Math.floor(Math.random() * 100) + 1;
 });
