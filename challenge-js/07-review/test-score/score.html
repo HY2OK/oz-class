@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>score</title>
+  </head>
+  <body>
+    <div class="container">
+      나의 기말고사 점수는 <span class="score"></span>점, 학점은
+      <span class="credit"></span>!!!
+    </div>
+
+    <script>
+      const $container = document.querySelector('.container');
+      const $score = document.querySelector('.score');
+      const $credit = document.querySelector('.credit');
+
+      let myScore = parseInt(prompt('중간고사 점수를 입력하세요'));
+      $score.textContent = myScore;
+
+      switch (true) {
+        case myScore >= 90:
+          $credit.textContent = 'A';
+          break;
+        case myScore >= 80 && myScore <= 89:
+          $credit.textContent = 'B';
+          break;
+        case myScore >= 70 && myScore <= 79:
+          $credit.textContent = 'C';
+          break;
+        case myScore >= 60 && myScore <= 69:
+          $credit.textContent = 'D';
+          break;
+        case myScore < 60:
+          $credit.textContent = 'F2.';
+          break;
+        default:
+          alert('숫자만 입력');
+      }
+    </script>
+  </body>
+</html>
