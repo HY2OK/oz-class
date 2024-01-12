@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>while</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>4의 배수 5개씩 출력하기</h1>
+      <div class="content"></div>
+    </div>
+
+    <script>
+      const $content = document.querySelector('.content');
+      let count = 0;
+
+      for (let i = 100; i <= 500; i += 4) {
+        if (count === 5) {
+          $content.innerText += `\n`;
+          count = 0;
+        }
+        $content.innerText += `${i}`;
+        count++;
+      }
+    </script>
+  </body>
+</html>
