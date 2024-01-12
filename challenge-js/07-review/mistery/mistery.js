@@ -7,7 +7,7 @@ let randomNumber = Math.floor(Math.random() * 100) + 1;
 
 $btn.addEventListener('click', (e) => {
   e.preventDefault();
-  let inputNumer = $input.value;
+  let inputNumer = Math.floor($input.value);
 
   if (inputNumer > 100 || inputNumer <= 0) {
     $input.value = '';
