@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.container .title {
+  margin: 30px 0;
+  font-size: 40px;
+}
+
+.container form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.container form input {
+  width: 200px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.container form input::-webkit-outer-spin-button,
+.container form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container form button {
+  border: 2px solid orange;
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  background-color: #333;
+  color: orange;
+  cursor: pointer;
+}
+
+.container form button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px yellow;
+}
+
+.container .replay {
+  display: none;
+  height: 50px;
+  width: 100px;
+  border: 5px solid skyblue;
+  background: none;
+  color: skyblue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container .replay:hover {
+  animation: fillAnimation 0.5s ease-in-out forwards;
+}
+
+@keyframes fillAnimation {
+  to {
+    background-color: skyblue;
+    color: #000;
+  }
+}
