@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>star</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>별 트리 찍기</h1>
+
+      <div>1번 별</div>
+      <div class="star1"></div>
+      <div>2번 별</div>
+      <div class="star2"></div>
+      <div>3번 별</div>
+      <div class="star3"></div>
+    </div>
+
+    <script>
+      const $star1 = document.querySelector('.star1');
+      const $star2 = document.querySelector('.star2');
+      const $star3 = document.querySelector('.star3');
+      const space = document.createTextNode('\u00a0');
+
+      // 1번 별
+      for (let i = 1; i <= 5; i++) {
+        $star1.innerText += '*'.repeat(i);
+        $star1.innerText += '\n';
+      }
+      // 2번 별
+      for (let i = 1; i <= 5; i++) {
+        $star2.innerText += '*'.repeat(i);
+        $star2.innerText += '\n';
+      }
+      for (let i = 5; i > 0; i--) {
+        $star2.innerText += '*'.repeat(i);
+        $star2.innerText += '\n';
+      }
+
+      // 3벌 별
+      for (let i = 1; i <= 5; i++) {
+        $star3.innerHTML += '&nbsp;'.repeat(5 - i);
+        $star3.innerText += '*'.repeat(2 * i - 1);
+        $star3.innerText += '\n';
+      }
+      for (let i = 5; i > 0; i--) {
+        $star3.innerHTML += '&nbsp;'.repeat(5 - i);
+        $star3.innerText += '*'.repeat(2 * i - 1);
+        $star3.innerText += '\n';
+      }
+    </script>
+  </body>
+</html>
