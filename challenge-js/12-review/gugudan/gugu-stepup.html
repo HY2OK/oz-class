@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gugu</title>
+    <style>
+      thead th {
+        padding: 8px;
+        width: 80px;
+      }
+
+      tbody {
+        text-align: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      tbody td {
+        border-top: none;
+        border-bottom: none;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>구구단 표</h1>
+      <h3>2단~9단을 만들어 보세요!</h3>
+      <table border="1" class="gugu"></table>
+    </div>
+
+    <script>
+      const $gugu = document.querySelector('.gugu');
+      const $thead = document.createElement('thead');
+      const $tbody = document.createElement('tbody');
+
+      const $h_tr = document.createElement('tr');
+      $thead.appendChild($h_tr);
+
+      for (let i = 2; i <= 9; i++) {
+        $h_tr.innerHTML += `<th>${i}단</th>`;
+      }
+
+      for (let i = 1; i <= 9; i++) {
+        const $b_tr = document.createElement('tr');
+        for (let j = 2; j <= 9; j++) {
+          $b_tr.innerHTML += `<td>${j}*${i}=${j * i}</td>`;
+        }
+        $tbody.appendChild($b_tr);
+      }
+      $gugu.appendChild($thead);
+      $gugu.appendChild($tbody);
+    </script>
+  </body>
+</html>
