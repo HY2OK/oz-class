@@ -5,14 +5,6 @@ const $container = document.querySelector('.container')
 
 let list = ['메로나']
 
-function listToText() {
-  $container.textContent = list.join(', ')
-}
-
-function printIce() {
-  list.forEach((ice) => alert(ice))
-}
-
 function addIce() {
   const ice = prompt('추가하고 싶은 아이스크림의 이름을 입력해주세요')
   if (ice === '') return
@@ -21,6 +13,14 @@ function addIce() {
     return
   }
   list.push(ice)
+}
+
+function printIce() {
+  list.forEach((ice) => alert(ice))
+}
+
+function listToText() {
+  $container.textContent = list.join(', ')
 }
 
 function init() {
