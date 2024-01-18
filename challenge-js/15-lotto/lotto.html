@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lotto</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .lotto h3 {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      .lotto .numbers {
+        height: 50px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .lotto .numbers .eachnum {
+        width: 45px;
+        height: 45px;
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: bold;
+        border-radius: 50%;
+        line-height: 50px;
+        text-align: center;
+      }
+
+      .lotto .btns {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .lotto .btns button {
+        width: 90px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        background-color: salmon;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="lotto">
+        <h3><span id="today"></span>로또 번호 추첨</h3>
+        <div class="numbers"></div>
+        <div class="btns">
+          <button id="draw">추첨</button>
+          <button id="reset">다시</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./lotto.js"></script>
+  </body>
+</html>
