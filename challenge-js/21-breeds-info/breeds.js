@@ -64,7 +64,6 @@ button.addEventListener('click', () => {
 select.addEventListener('change', () => {
   main.innerHTML = ``
   let filteredDogs = currentDogs.filter((item) => {
-    console.log(item.indexOf(input.value))
     return item.indexOf(select.value) !== -1
   })
 
