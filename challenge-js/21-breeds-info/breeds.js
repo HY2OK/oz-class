@@ -1,4 +1,4 @@
-const apiRandomDogs = 'https://dog.ceo/api/breeds/image/random/42'
+const apiRandomDogs = 'https://dog.ceo/api/breeds/image/random/5'
 const apiAllBreeds = 'https://dog.ceo/api/breeds/list/all'
 let request1 = new XMLHttpRequest()
 const request2 = new XMLHttpRequest()
@@ -28,6 +28,7 @@ function fetchData() {
     response.message.forEach((item) => {
       currentDogs.push(item)
       displayDogs(item)
+      console.log(currentDogs.length)
     })
   })
   request1.send()
@@ -51,13 +52,8 @@ window.addEventListener('load', () => {
 
 button.addEventListener('click', () => {
   main.innerHTML = ``
-  let filteredDogs = currentDogs.filter((item) => {
-    console.log(item.indexOf(input.value))
-    return item.indexOf(input.value) !== -1
-  })
-
+  let filteredDogs = currentDogs.filter((item) => item.indexOf(input.value) !== -1)
   input.value = ''
-
   filteredDogs.forEach((item) => displayDogs(item))
 })
 
@@ -70,13 +66,18 @@ select.addEventListener('change', () => {
   filteredDogs.forEach((item) => displayDogs(item))
 })
 
-more.addEventListener('click', () => {
+more.addEventListener('click', async () => {
   request1.open('get', apiRandomDogs)
-  request1.addEventListener('load', (item) => {
-    currentDogs.push(item)
-    displayDogs(item)
-  })
   request1.send()
+
+  // request1.addEventListener('load', async () => {
+  //   const response = await JSON.parse(request1.response)
+  //   console.log(response)
+  //   response.message.forEach((item) => {
+  //     currentDogs.push(item)
+  //     displayDogs(item)
+  //   })
+  // })
 })
 
 tothetop.addEventListener('click', () => {
