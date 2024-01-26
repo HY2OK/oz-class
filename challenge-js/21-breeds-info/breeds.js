@@ -28,7 +28,6 @@ function fetchData() {
     response.message.forEach((item) => {
       currentDogs.push(item)
       displayDogs(item)
-      console.log(currentDogs.length)
     })
   })
   request1.send()
@@ -69,15 +68,6 @@ select.addEventListener('change', () => {
 more.addEventListener('click', async () => {
   request1.open('get', apiRandomDogs)
   request1.send()
-
-  // request1.addEventListener('load', async () => {
-  //   const response = await JSON.parse(request1.response)
-  //   console.log(response)
-  //   response.message.forEach((item) => {
-  //     currentDogs.push(item)
-  //     displayDogs(item)
-  //   })
-  // })
 })
 
 tothetop.addEventListener('click', () => {
@@ -87,5 +77,6 @@ tothetop.addEventListener('click', () => {
 resetBtn.addEventListener('click', () => {
   main.innerHTML = ``
   request1 = new XMLHttpRequest()
+  currentDogs.length = 0
   fetchData()
 })
