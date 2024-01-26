@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/oz_icon.png" />
+    <title>오즈코딩스쿨 | 카운트다운 타이머</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Artifika&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <main class="main">
+        <p>COUNTDOWN TIMER</p>
+
+        <div class="timer">
+          <div class="timer-day">
+            <input type="number" name="day" id="day" value="00" />
+            <span>일</span>
+          </div>
+          <span>:</span>
+          <div class="timer-hour">
+            <input type="number" name="hour" id="hour" value="00" />
+            <span>시</span>
+          </div>
+          <span>:</span>
+          <div class="timer-minute">
+            <input type="number" name="minute" id="minute" value="00" />
+            <span>분</span>
+          </div>
+          <span>:</span>
+          <div class="timer-second">
+            <input type="number" name="second" id="second" value="00" />
+            <span>초</span>
+          </div>
+        </div>
+
+        <div class="btns">
+          <button class="btn timer-btn">START</button>
+          <button class="btn reset-btn" style="visibility: hidden">RESET</button>
+        </div>
+      </main>
+
+      <div class="footer">
+        © 2023. <a href="https://ozcodingschool.com/" target="_blank">ozcodingschool</a>. All rights
+        reserved. Developed by <a href="https://github.com/HY2OK">[HY2OK]</a>.
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
