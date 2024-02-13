@@ -8,7 +8,13 @@ export default class ExpenseList extends Component {
       <>
         <ul className="list">
           {this.props.initialExpenses.map((expense, index) => {
-            return <ExpenseItem key={index} expense={expense} />
+            return (
+              <ExpenseItem
+                key={index}
+                expense={expense}
+                handleDelete={this.props.handleDelete}
+              />
+            )
           })}
         </ul>
         <button className="btn">목록 지우기</button>
