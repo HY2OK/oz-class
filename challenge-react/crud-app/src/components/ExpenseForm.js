@@ -1,8 +1,8 @@
 import './ExpenseForm.css'
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ charge, handleCharge, amount, handleAmount, handleSubmit }) => {
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="form-center">
         <div className="form-group">
           <label htmlFor="charge">상품</label>
@@ -12,6 +12,8 @@ const ExpenseForm = () => {
             id="charge"
             name="charge"
             placeholder="예) 콜라"
+            value={charge}
+            onChange={handleCharge}
           />
         </div>
         <div className="form-group">
@@ -22,6 +24,8 @@ const ExpenseForm = () => {
             id="amount"
             name="amount"
             placeholder="예) 100"
+            value={amount}
+            onChange={handleAmount}
           />
         </div>
       </div>
