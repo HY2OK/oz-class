@@ -68,6 +68,10 @@ const App = () => {
     handleAlert({ type: 'danger', text: '아이템이 삭제되었습니다.' })
   }
 
+  const clearItems = () => {
+    setExpenses([])
+  }
+
   const handleAlert = ({ type, text }) => {
     setAlert({ show: true, type, text })
     setTimeout(() => {
@@ -94,9 +98,11 @@ const App = () => {
 
         <div style={{ width: '100%', backgroundColor: 'white', padding: '1rem' }}>
           <ExpenseList
+            expenses={expenses}
             initialExpenses={expenses}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
+            clearItems={clearItems}
           />
         </div>
 
