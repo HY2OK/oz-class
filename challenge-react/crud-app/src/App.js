@@ -1,15 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ExpenseForm from './components/ExpenseForm'
 import ExpenseList from './components/ExpenseList'
 import Alert from './components/Alert'
 
 const App = () => {
-  const [expenses, setExpenses] = useState([
-    { id: 1, charge: '콜라', amount: 2000 },
-    { id: 2, charge: '빵', amount: 1000 },
-    { id: 3, charge: '맥북', amount: 20000 },
-  ])
+  const [expenses, setExpenses] = useState([])
+
+  useEffect(() => {
+    const existExpenses = JSON.parse(window.localStorage.getItem('products'))
+    setExpenses(existExpenses)
+  }, [])
 
   const [charge, setCharge] = useState('')
   const [amount, setAmount] = useState(0)
@@ -43,6 +44,7 @@ const App = () => {
         const newExpenses = expenses.map((item) => {
           return item.id === id ? { ...item, charge, amount } : item
         })
+        window.localStorage.setItem('products', JSON.stringify(newExpenses))
         setExpenses(newExpenses)
         setEdit(false)
         handleAlert({ type: 'success', text: '아이템이 수정되었습니다.' })
@@ -50,6 +52,7 @@ const App = () => {
         const newExpense = { id: crypto.randomUUID(), charge, amount }
         const newExpenses = [...expenses, newExpense]
         setExpenses(newExpenses)
+        window.localStorage.setItem('products', JSON.stringify(newExpenses))
         handleAlert({ type: 'success', text: '아이템이 생성되었습니다.' })
       }
       setCharge('')
@@ -65,11 +68,13 @@ const App = () => {
   const handleDelete = (id) => {
     const newExpense = expenses.filter((expense) => expense.id !== id)
     setExpenses(newExpense)
+    window.localStorage.setItem('products', JSON.stringify(newExpense))
     handleAlert({ type: 'danger', text: '아이템이 삭제되었습니다.' })
   }
 
   const clearItems = () => {
     setExpenses([])
+    window.localStorage.removeItem('products')
   }
 
   const handleAlert = ({ type, text }) => {
@@ -98,7 +103,7 @@ const App = () => {
 
         <div style={{ width: '100%', backgroundColor: 'white', padding: '1rem' }}>
           <ExpenseList
-            expenses={expenses}
+            setExpenses={setExpenses}
             initialExpenses={expenses}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
