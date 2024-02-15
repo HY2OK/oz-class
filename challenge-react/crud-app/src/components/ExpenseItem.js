@@ -3,9 +3,9 @@ import { MdDelete, MdEdit } from 'react-icons/md'
 import { Draggable } from 'react-beautiful-dnd'
 import React from 'react'
 
-const ExpenseItem = React.memo(({ index, expense, handleEdit, handleDelete }) => {
+const ExpenseItem = React.memo(({ id, index, expense, handleEdit, handleDelete }) => {
   return (
-    <Draggable key={`expense${index}`} draggableId={`item-${index}`} index={index}>
+    <Draggable key={id} draggableId={id} index={index}>
       {(provided) => {
         return (
           <li

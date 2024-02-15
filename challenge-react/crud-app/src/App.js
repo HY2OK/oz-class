@@ -20,6 +20,16 @@ const App = () => {
 
   const [edit, setEdit] = useState(false)
 
+  const onDragEnd = (result) => {
+    if (!result.destination) return
+
+    const newExpenses = Array.from(expenses)
+    const [movedExpense] = newExpenses.splice(result.source.index, 1)
+    newExpenses.splice(result.destination.index, 0, movedExpense)
+
+    setExpenses(newExpenses)
+  }
+
   const handleEdit = (id) => {
     const expense = expenses.find((item) => item.id === id)
     const { charge, amount } = expense
@@ -103,11 +113,11 @@ const App = () => {
 
         <div style={{ width: '100%', backgroundColor: 'white', padding: '1rem' }}>
           <ExpenseList
-            setExpenses={setExpenses}
             initialExpenses={expenses}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
             clearItems={clearItems}
+            onDragEnd={onDragEnd}
           />
         </div>
 
