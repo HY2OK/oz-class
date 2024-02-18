@@ -27,6 +27,7 @@ const App = () => {
     const [movedExpense] = newExpenses.splice(result.source.index, 1)
     newExpenses.splice(result.destination.index, 0, movedExpense)
 
+    window.localStorage.setItem('products', JSON.stringify(newExpenses))
     setExpenses(newExpenses)
   }
 
