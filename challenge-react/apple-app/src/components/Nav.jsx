@@ -15,8 +15,6 @@ const Nav = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', listener)
-    console.log(show)
-
     return () => {
       window.removeEventListener('scroll', listener)
     }
