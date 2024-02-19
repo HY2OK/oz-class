@@ -47,8 +47,9 @@ const Banner = () => {
               <button className="banner__button play">Play</button>
             ) : null}
           </div>
-          <p className="banner_description">{turncate(movie.overview, 100)}</p>
+          <p className="banner__description">{turncate(movie.overview, 100)}</p>
         </div>
+        <div className="banner--fadeBottom"></div>
       </div>
     )
   }
