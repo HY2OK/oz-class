@@ -98,7 +98,7 @@ const ProductItem = ({
                 <MdEdit />
               </EditBtn>
             )}
-            <ClearBtn onClick={() => handleDelete()}>
+            <ClearBtn onClick={() => handleDelete(product.id)}>
               <MdDelete />
             </ClearBtn>
           </div>
