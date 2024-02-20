@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { MdSend } from 'react-icons/md'
 import { FormCenter, FormGroup, FormInput, Label } from './ProductFormStyles'
 
 const ProductForm = ({ products, setProducts, handleAlert }) => {
+  const inputRef = useRef(null)
+
   const [productInfo, setProductInfo] = useState({
     charge: '',
     amount: 0,
@@ -25,6 +27,7 @@ const ProductForm = ({ products, setProducts, handleAlert }) => {
       window.localStorage.setItem('products', JSON.stringify(newProducts))
       handleAlert({ type: 'success', text: '아이템이 생성되었습니다.' })
       setProductInfo({ charge: '', amount: 0 })
+      inputRef.current.focus()
     } else {
       handleAlert({
         type: 'danger',
@@ -42,6 +45,7 @@ const ProductForm = ({ products, setProducts, handleAlert }) => {
             type="text"
             id="charge"
             name="charge"
+            ref={inputRef}
             placeholder="예) 콜라"
             value={productInfo.charge}
             onChange={handleChange}
