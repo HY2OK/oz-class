@@ -66,28 +66,30 @@ const ProductItem = ({
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          {edit === 'true' ? (
-            <InfoDiv>
-              <ProductInput
-                type="text"
-                name="charge"
-                value={productInfo.charge}
-                onChange={handleChange}
-                autoFocus
-              />
-              <AmountInput
-                type="number"
-                name="amount"
-                value={productInfo.amount}
-                onChange={handleChange}
-              />
-            </InfoDiv>
-          ) : (
-            <InfoDiv>
-              <ProductDiv>{productInfo.charge}</ProductDiv>
-              <AmountDiv>{productInfo.amount}</AmountDiv>
-            </InfoDiv>
-          )}
+          <InfoDiv>
+            {edit === 'true' ? (
+              <>
+                <ProductInput
+                  type="text"
+                  name="charge"
+                  value={productInfo.charge}
+                  onChange={handleChange}
+                  autoFocus
+                />
+                <AmountInput
+                  type="number"
+                  name="amount"
+                  value={productInfo.amount}
+                  onChange={handleChange}
+                />
+              </>
+            ) : (
+              <>
+                <ProductDiv>{productInfo.charge}</ProductDiv>
+                <AmountDiv>{productInfo.amount}</AmountDiv>
+              </>
+            )}
+          </InfoDiv>
           <div>
             {edit === 'true' ? (
               <EditBtn onClick={() => handleEdit(product.id)}>
