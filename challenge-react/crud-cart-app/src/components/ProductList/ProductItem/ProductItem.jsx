@@ -38,11 +38,11 @@ const ProductItem = ({
     }))
   }
 
-  const handleSave = (id) => {
+  const handleEdit = () => {
     setEdit('false')
 
-    const newProducts = products.map((product) => {
-      if (id === productInfo.id) {
+    const newProducts = products.map((prevProduct) => {
+      if (prevProduct.id === productInfo.id) {
         if (
           product.charge !== productInfo.charge ||
           product.amount !== productInfo.amount
@@ -51,7 +51,7 @@ const ProductItem = ({
         }
         return productInfo
       }
-      return product
+      return prevProduct
     })
     setProducts(newProducts)
     window.localStorage.setItem('products', JSON.stringify(newProducts))
@@ -90,7 +90,7 @@ const ProductItem = ({
           )}
           <div>
             {edit === 'true' ? (
-              <EditBtn onClick={() => handleSave(product.id)}>
+              <EditBtn onClick={() => handleEdit(product.id)}>
                 <MdCheck />
               </EditBtn>
             ) : (
@@ -98,7 +98,7 @@ const ProductItem = ({
                 <MdEdit />
               </EditBtn>
             )}
-            <ClearBtn onClick={() => handleDelete(product.id)}>
+            <ClearBtn onClick={() => handleDelete()}>
               <MdDelete />
             </ClearBtn>
           </div>
