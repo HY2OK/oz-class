@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
+import './MovieModal.css'
 import { imageBasePath } from '../../constant'
 
 const MovieModal = ({
@@ -25,7 +26,7 @@ const MovieModal = ({
             alt="modal_poster-img"
             className="modal__poster-img"
           />
-          <div className="modal_content">
+          <div className="modal__content">
             <p className="modal__details">
               <span>100% for you</span>
               {release_date ? release_date : first_air_date}
