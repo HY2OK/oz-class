@@ -25,10 +25,10 @@ const Row = ({ title, id, fetchUrl }) => {
         <div id={id} className="row__posters">
           {moives?.map((movie) => (
             <img
-              key={moives.id}
+              key={movie.id}
               className="row__poster"
               src={`https:image.tmdb.org/t/p/original${movie.backdrop_path}`}
-              alt={moives.name}
+              alt={movie.name}
             />
           ))}
         </div>
