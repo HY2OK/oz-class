@@ -24,7 +24,6 @@ const SearchPage = () => {
         `/search/multi?include_adult=false&query=${searchTerm}`,
       )
       setSearchResults(response.data.results)
-      console.log(response.data.results)
     } catch (error) {
       console.error(error)
     }
