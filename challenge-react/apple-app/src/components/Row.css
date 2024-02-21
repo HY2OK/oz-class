@@ -75,6 +75,10 @@
   scroll-behavior: smooth;
 }
 
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
 .row__poster {
   object-fit: contain;
   width: 100%;
