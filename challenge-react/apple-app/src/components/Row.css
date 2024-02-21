@@ -100,6 +100,23 @@
 
 @media screen and (min-width: 768px) {
   .row__poster {
-    max-height: 100px;
+    /* max-height: 100px; */
   }
+}
+
+.swiper-pagination {
+  text-align: right !important;
+}
+.swiper-pagination-bullet {
+  background-color: gray !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: white !important;
+}
+.swiper-button-prev {
+  color: white !important;
+}
+.swiper-button-next {
+  color: white !important;
 }
