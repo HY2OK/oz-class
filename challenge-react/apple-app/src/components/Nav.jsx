@@ -1,12 +1,23 @@
 import { useEffect, useState } from 'react'
 import './Nav.css'
 import { styled } from 'styled-components'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from 'firebase/auth'
+import app from '../firebase'
 
 const Nav = () => {
   const [show, setShow] = useState('false')
   const [searchValue, setSearchValue] = useState('')
   const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+  const auth = getAuth(app)
+  const provider = new GoogleAuthProvider()
 
   const listener = () => {
     if (window.scrollY > 50) {
@@ -15,6 +26,16 @@ const Nav = () => {
       setShow('false')
     }
   }
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate('/')
+      } else if (user && pathname === '/') {
+        navigate('/main')
+      }
+    })
+  }, [auth, navigate, pathname])
 
   useEffect(() => {
     window.addEventListener('scroll', listener)
@@ -28,6 +49,16 @@ const Nav = () => {
     navigate(`/search?q=${e.target.value}`)
   }
 
+  const handleAuth = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result)
+      })
+      .catch((error) => {
+        alert(error.message)
+      })
+  }
+
   return (
     <NavWrapper show={show}>
       <Logo>
@@ -39,15 +70,17 @@ const Nav = () => {
         />
       </Logo>
 
-      <Input
-        type="text"
-        value={searchValue}
-        onChange={(e) => handleChange(e)}
-        className="nav__input"
-        placeholder="영화를 검색해주세요."
-      />
-
-      <Login>로그인</Login>
+      {pathname === '/' ? (
+        <Login onClick={handleAuth}>로그인</Login>
+      ) : (
+        <Input
+          type="text"
+          value={searchValue}
+          onChange={(e) => handleChange(e)}
+          className="nav__input"
+          placeholder="영화를 검색해주세요."
+        />
+      )}
     </NavWrapper>
   )
 }
