@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Products = ({ name, imagePath }) => {
-  console.log(name, imagePath)
   return (
     <div style={{ textAlign: 'center' }}>
       <img
