@@ -9,7 +9,6 @@ const Type = ({ orderType }) => {
   const [items, setItems] = useState([])
   const [error, setError] = useState(false)
   const [oderData, updateItemCount] = useContext(OrderContext)
-  console.log(oderData.totals)
 
   useEffect(() => {
     loadItems(orderType)
