@@ -4,8 +4,8 @@ import Backdrop from './BackdropContainer/BackdropContainer'
 
 const DelModal = ({ setModalOpen, products, setProducts }) => {
   const modalRef = useRef(null)
-  const [productList, setProductList] = useState(null)
-  const [allDel, setAllDel] = useState(false)
+  const [productList, setProductList] = useState([])
+  const allDel = productList.every((product) => product.checked)
 
   useEffect(() => {
     setProductList(
@@ -35,7 +35,6 @@ const DelModal = ({ setModalOpen, products, setProducts }) => {
   }
 
   const handleAll = () => {
-    setAllDel(!allDel)
     const newProductList = productList.map((product) => ({
       ...product,
       checked: !allDel,
