@@ -43,7 +43,13 @@ export function OrderContextProvider(props) {
     function updateItemCount(itemName, newItemCount, orderType) {
       const newOderCounts = { ...orderCounts }
       const oderCountsMap = orderCounts[orderType]
-      oderCountsMap.set(itemName, parseInt(newItemCount))
+      // oderCountsMap.set(itemName, parseInt(newItemCount))
+
+      if (newItemCount === 0) {
+        oderCountsMap.delete(itemName)
+      } else {
+        oderCountsMap.set(itemName, parseInt(newItemCount))
+      }
 
       setOrderCounts(newOderCounts)
     }
