@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { OrderContext } from '../../context/OrderContext'
+import styles from './Summary.module.css'
 
 const SummaryPage = ({ setStep }) => {
   const [checked, setChecked] = useState(false)
@@ -31,7 +32,7 @@ const SummaryPage = ({ setStep }) => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>주문 확인</h1>
       <h2>여행 상품: {oderDetails.totals.products}</h2>
       <ul>{productList}</ul>
@@ -45,7 +46,7 @@ const SummaryPage = ({ setStep }) => {
         />
         <label htmlFor="confirm-checkbox">주문하려는 것을 확인하셨나요?</label>
         <br />
-        <button disabled={!checked} type="submit">
+        <button className={styles.btn} disabled={!checked} type="submit">
           주문 확인
         </button>
       </form>
