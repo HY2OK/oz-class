@@ -1,9 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import {
+  Button,
+  ImageBackground,
+  Modal,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axiosInstance from '../api/axios'
+import { BASE_URL } from './Banner'
+import DetailsText from './DetailsText'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const MovieDetail = ({ isModalVisible, movie, closeModal }) => {
-  if (!isModalVisible) return null
+  if (!movie) return null
 
   const [details, setDetails] = useState(null)
 
@@ -18,9 +29,52 @@ const MovieDetail = ({ isModalVisible, movie, closeModal }) => {
     fetchDetails()
   }, [])
 
-  return <Text>MovieDetail</Text>
+  return (
+    <Modal visible={isModalVisible}>
+      <View style={styles.container}>
+        <ScrollView>
+          <ImageBackground
+            source={{ uri: `${BASE_URL}${movie.backdrop_path}` }}
+            style={styles.backDrop}
+          >
+            <LinearGradient
+              colors={['transparent', 'rgba(37,37,37,0.7)', '#171717']}
+              style={styles.radialGradient}
+            />
+          </ImageBackground>
+
+          <DetailsText
+            title={movie?.title || movie?.original_title || movie?.name}
+            description={movie?.overview}
+            genres={details?.genres}
+          />
+          <Button title="Close" onPress={closeModal} />
+        </ScrollView>
+      </View>
+    </Modal>
+  )
 }
 
 export default MovieDetail
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#171717',
+  },
+  backDrop: {
+    width: '100%',
+    height: 450,
+    objectFit: 'cover',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    position: 'relative',
+  },
+  radialGradient: {
+    position: 'absolute',
+    height: 180,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+})
