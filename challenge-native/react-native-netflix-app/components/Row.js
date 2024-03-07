@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axiosInstance from '../api/axios'
 import { BASE_URL } from './Banner'
 
-const Row = ({ title, fetchUrl, isLargeRow }) => {
+const Row = ({ title, fetchUrl, isLargeRow, onOpenModal }) => {
   const [Movies, setMovies] = useState([])
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
       <Text style={styles.row__title}>{title}</Text>
       <ScrollView horizontal contentContainerStyle={styles.row__posters}>
         {Movies.map((movie) => (
-          <Pressable key={movie.id}>
+          <Pressable key={movie.id} onPress={() => onOpenModal(movie)}>
             <Image
               source={{ uri: `${BASE_URL}${movie.poster_path || movie.backdrop_path}` }}
               style={{
