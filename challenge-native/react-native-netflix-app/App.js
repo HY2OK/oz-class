@@ -6,7 +6,7 @@ import requests from './api/requests'
 export default function App() {
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.scrollView}>
         <Banner fetchUrl={requests.fetchNowPlaying} />
       </ScrollView>
       <StatusBar style="auto" />
@@ -21,5 +21,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 50,
+  },
+  scrollView: {
+    width: '100%',
   },
 })
