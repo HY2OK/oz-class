@@ -1,7 +1,9 @@
 const path = require('path')
 
 function getPost(req, res) {
-  res.sendFile(path.join(__dirname, '..', 'public', 'images', 'mountain.webp'))
+  res.render('posts', {
+    templateName: 'post',
+  })
 }
 
 module.exports = { getPost }
