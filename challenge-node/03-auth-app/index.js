@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 
 const app = express()
 const secretText = 'superSecret'
+const refreshSecretText = 'supersuperSecret'
 
 const posts = [
   {
@@ -14,6 +15,7 @@ const posts = [
     title: 'Post 2',
   },
 ]
+let refreshTokens = []
 
 app.use(express.json())
 
@@ -22,7 +24,18 @@ app.post('/login', (req, res) => {
   const user = { name: username }
 
   // jwt 이용해서 토큰 생성, payload + secretText
-  const accessToken = jwt.sign(user, secretText)
+  // 유효기간
+  const accessToken = jwt.sign(user, secretText, { expiresIn: '30s' })
+  const refreshToken = jwt.sign(user, refreshSecretText, { expiresIn: '1d' })
+
+  refreshTokens.push(refreshToken)
+
+  // refreshToken 쿠키에 넣어주기
+  res.cookie('jwt', refreshToken, {
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000,
+  })
+
   res.json({ accessToken: accessToken })
 })
 
