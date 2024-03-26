@@ -5,6 +5,7 @@ const mongodbKey = require('./config/key')
 const User = require('./models/users.model')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
+const { checkAuthenticated, checkNotAuthenticated } = require('./middlewares/auth')
 
 const app = express()
 
@@ -51,11 +52,11 @@ mongoose
   })
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
-app.get('/', (req, res) => {
+app.get('/', checkAuthenticated, (req, res) => {
   res.render('index')
 })
 
-app.get('/login', (req, res) => {
+app.get('/login', checkNotAuthenticated, (req, res) => {
   res.render('login')
 })
 
@@ -74,7 +75,7 @@ app.post('/login', (req, res, next) => {
   })(req, res, next)
 })
 
-app.get('/signup', (req, res) => {
+app.get('/signup', checkNotAuthenticated, (req, res) => {
   res.render('signup')
 })
 
