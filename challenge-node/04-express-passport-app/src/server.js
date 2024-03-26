@@ -4,18 +4,41 @@ const path = require('path')
 const mongodbKey = require('./config/key')
 const User = require('./models/users.model')
 const passport = require('passport')
+const cookieSession = require('cookie-session')
 
 const app = express()
+
+const cookieEncryptionKey = 'supersecret-key'
+app.use(
+  cookieSession({
+    keys: [cookieEncryptionKey],
+  }),
+)
+
+app.use(function (request, response, next) {
+  if (request.session && !request.session.regenerate) {
+    request.session.regenerate = (cb) => {
+      cb()
+    }
+  }
+  if (request.session && !request.session.save) {
+    request.session.save = (cb) => {
+      cb()
+    }
+  }
+  next()
+})
+
+app.use(passport.initialize())
+app.use(passport.session())
+require('./config/passport')
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
-
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(passport.initialize())
-app.use(passport.session())
-require('./config/passport')
 
 mongoose.set('strictQuery', false)
 mongoose
@@ -28,6 +51,9 @@ mongoose
   })
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
+app.get('/', (req, res) => {
+  res.render('index')
+})
 
 app.get('/login', (req, res) => {
   res.render('login')
@@ -45,7 +71,7 @@ app.post('/login', (req, res, next) => {
       }
       res.redirect('/')
     })
-  })
+  })(req, res, next)
 })
 
 app.get('/signup', (req, res) => {

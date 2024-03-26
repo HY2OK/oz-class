@@ -16,16 +16,16 @@ const userSchema = mongoose.Schema({
   },
 })
 
-const User = mongoose.model('User', userSchema)
-
-userSchema.methods.comparePassword = function (plainPassword, callback) {
+userSchema.methods.comparePassword = function (plainPassword, cb) {
   if (plainPassword === this.password) {
-    callback(null, true)
+    cb(null, true)
   } else {
-    callback(null, false)
+    cb(null, false)
   }
 
-  return callback({ error: 'error' })
+  return cb({ error: 'error' })
 }
+
+const User = mongoose.model('User', userSchema)
 
 module.exports = User
