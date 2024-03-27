@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 const User = require('../models/users.model')
+const sendMail = require('../mail/mail')
 const usersRouter = express.Router()
 
 usersRouter.post('/login', (req, res, next) => {
@@ -33,6 +34,8 @@ usersRouter.post('/signup', async (req, res) => {
   // user 컬렉션에 유저 저장
   try {
     await user.save()
+    // 메일 보내기
+    sendMail('gurwns232@naver.com', 'jun', 'welcome')
     return res.status(200).json({
       success: true,
     })
