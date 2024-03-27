@@ -1,18 +1,19 @@
 const express = require('express')
 const { default: mongoose } = require('mongoose')
 const path = require('path')
-const { mongodbKey } = require('./config/key')
 const User = require('./models/users.model')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
 const { checkAuthenticated, checkNotAuthenticated } = require('./middlewares/auth')
 
+require('dotenv').config()
+
 const app = express()
 
-const cookieEncryptionKey = 'supersecret-key'
 app.use(
   cookieSession({
-    keys: [cookieEncryptionKey],
+    name: 'cookie-session-name',
+    keys: [process.env.COOKIE_ENCRYPTION_KEY],
   }),
 )
 
@@ -43,7 +44,7 @@ app.set('view engine', 'ejs')
 
 mongoose.set('strictQuery', false)
 mongoose
-  .connect(mongodbKey)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log('mongodb connected')
   })
@@ -111,7 +112,10 @@ app.get(
   }),
 )
 
-const port = 4000
+const config = require('config')
+const serverConfig = config.get('server')
+
+const port = serverConfig.port
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}`)
 })

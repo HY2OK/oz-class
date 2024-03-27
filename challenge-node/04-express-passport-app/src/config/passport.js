@@ -1,6 +1,5 @@
 const passport = require('passport')
 const User = require('../models/users.model')
-const { googleClientId, googleClientSecret } = require('./key')
 const LocalStrategy = require('passport-local').Strategy
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 
@@ -47,8 +46,8 @@ passport.use(
 
 const GoogleStrategyConfig = new GoogleStrategy(
   {
-    clientID: googleClientId,
-    clientSecret: googleClientSecret,
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/callback',
     scope: ['email', 'profile'],
   },
