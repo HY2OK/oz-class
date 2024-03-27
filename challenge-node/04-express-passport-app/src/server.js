@@ -1,7 +1,7 @@
 const express = require('express')
 const { default: mongoose } = require('mongoose')
 const path = require('path')
-const mongodbKey = require('./config/key')
+const { mongodbKey } = require('./config/key')
 const User = require('./models/users.model')
 const passport = require('passport')
 const cookieSession = require('cookie-session')
@@ -101,6 +101,15 @@ app.post('/signup', async (req, res) => {
     console.log(error)
   }
 })
+
+app.get('/auth/google', passport.authenticate('google'))
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', {
+    successReturnToOrRedirect: '/',
+    failureRedirect: '/login',
+  }),
+)
 
 const port = 4000
 app.listen(port, () => {
